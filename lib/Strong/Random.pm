@@ -20,8 +20,15 @@ sub new {
 
 sub _shuffle_seed {
 	my $class = shift;
-	return (join '.', reverse Time::HiRes::gettimeofday) . $$;
+	my $n = (join '.', reverse Time::HiRes::gettimeofday) . $$;
+	
+	$n =~ s/\.//;
+	$n = substr($n, 0, -12);
+	$n = '0.'.$n;
+
+	return 1 / $n;
 }
+
 
 sub _harmonic {
 	my $self = shift;
