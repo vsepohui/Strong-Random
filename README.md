@@ -10,5 +10,6 @@ git clone https://github.com/vsepohui/Strong-Random
 
 ```
 perl Makefile.PL
+make
 sudo make install
 ```
