@@ -6,7 +6,7 @@ Strong::Random package for secure random usage!
 git clone https://github.com/vsepohui/Strong-Random
 ```
 
-# Install
+# Installiation
 
 ```
 perl Makefile.PL
