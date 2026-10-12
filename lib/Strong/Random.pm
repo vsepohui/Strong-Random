@@ -1,10 +1,41 @@
 package Strong::Random;
 
+=head1 NAME
+
+Strong::Random - Strong random generator
+
+=head1 SYNOPSIS
+
+  use Strong::Random;
+
+  my $rand = new Strong::Random;
+
+  # Print random character
+  print chr $rand->rand(256) . "\n";
+
+=cut
+
 use 5.022;
 use warnings;
 
 use Time::HiRes;
 
+=head1 METHODS
+
+=head2 new()
+
+Strong::Random constructor.
+
+Parameters:
+	
+	$seed - Seed for next series of random generation by algorythm. 
+	        If not specified, will be use CPU-time + PID.
+
+Return:
+	
+	Strong::Random based class object.
+
+=cut
 
 sub new {
 	my $class = shift;
@@ -35,6 +66,18 @@ sub _harmonic {
 	return ($step % 2 ? -1 : 1)*sqrt (1 - $x*$x);
 }
 
+=head2 srand()
+
+Setup new seed.
+
+Parameters:
+	
+	$seed - Seed for next series of random generation by algorythm. 
+	        If not specified, will be use CPU-time + PID.
+
+
+=cut
+
 sub srand {
 	my $self = shift;
 	my $seed = shift // $self->_shuffle_seed();
@@ -45,6 +88,17 @@ sub srand {
 	
 	$self->{seed} = $seed;
 }
+
+=head2 rand()
+
+Return random number.
+
+Parameters:
+	
+	$num - If specified, method will return int between [0..$num-1).
+		   If not specfied, method return value form [0..1).
+
+=cut
 
 sub rand {
 	my $self = shift;
@@ -66,5 +120,13 @@ sub rand {
 	
 	return $num ? int $num * $r : $r;
 }
+
+=head1 AUTHOR
+
+All code writen by Ivan Trunaev.
+
+Contacts <ivan@trunaev.ru>
+
+=cut
 
 1;
