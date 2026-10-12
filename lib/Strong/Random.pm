@@ -20,7 +20,7 @@ use warnings;
 
 use Time::HiRes;
 
-our $VERSION = '0.8';
+our $VERSION = '0.9';
 
 =head1 METHODS
 
@@ -125,7 +125,7 @@ sub rand {
 
 =head1 VERSION
 
-0.8
+0.9
 
 =head1 AUTHOR
 
