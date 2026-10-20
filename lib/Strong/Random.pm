@@ -52,11 +52,16 @@ sub new {
 	return $self;
 }
 
+sub _system_rand {
+	my $class = shift;
+	return ($Config{osname} eq 'MSWin32' ? perl_rand () : (rand() || perl_rand()));
+}
+
 
 sub _shuffle_seed {
 	my $class = shift;
 	
-	return ($Config{osname} eq 'MSWin32' ? perl_rand () : rand()) * ((join '.', reverse Time::HiRes::gettimeofday) . $$);
+	return $class->_system_rand() * ((join '.', reverse Time::HiRes::gettimeofday) . $$);
 }
 
 sub _harmonic {
