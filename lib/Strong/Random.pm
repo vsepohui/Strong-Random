@@ -18,9 +18,11 @@ Strong::Random - Strong random generator
 use 5.022;
 use warnings;
 
+use Config;
+use Rand::Urandom;
 use Time::HiRes;
 
-our $VERSION = '0.9';
+our $VERSION = '0.91';
 
 =head1 METHODS
 
@@ -53,7 +55,8 @@ sub new {
 
 sub _shuffle_seed {
 	my $class = shift;
-	return (join '.', reverse Time::HiRes::gettimeofday) . $$;
+	
+	return ($Config{osname} eq 'MSWin32' ? perl_rand () : rand()) * ((join '.', reverse Time::HiRes::gettimeofday) . $$);
 }
 
 sub _harmonic {
