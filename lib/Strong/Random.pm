@@ -22,7 +22,7 @@ use Config;
 use Rand::Urandom;
 use Time::HiRes;
 
-our $VERSION = '0.91';
+our $VERSION = '0.92';
 
 =head1 METHODS
 
