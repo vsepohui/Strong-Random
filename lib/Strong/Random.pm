@@ -22,7 +22,7 @@ use Config;
 use Rand::Urandom;
 use Time::HiRes;
 
-our $VERSION = '0.92';
+our $VERSION = '0.93';
 
 =head1 METHODS
 
@@ -133,11 +133,15 @@ sub rand {
 
 =head1 VERSION
 
-0.9
+0.93
 
 =head1 AUTHOR
 
 All code writen by Ivan Trunaev.
+
+=head1 LICENSE
+
+Commercial support by Author for Open Source!
 
 Contacts <ivan@trunaev.ru>
 
